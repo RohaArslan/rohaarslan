@@ -30,8 +30,8 @@ I am a **Software Engineer** specializing in **ML; AI, Web Development, and Biom
 ## Contact
 You can reach me through:
 
-- **LinkedIn:** [linkedin.com/in/rohaarslan](https://linkedin.com/in/rohaarslan)  
-- **Portfolio:** [your-portfolio-link.com](https://rohaarslan.github.io/)
+- **LinkedIn:** [Linkedin](https://linkedin.com/in/rohaarslan)  
+- **Portfolio:** [Whois?Roha](https://rohaarslan.github.io/)
 
 ---
 
