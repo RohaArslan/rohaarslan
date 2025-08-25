@@ -1,7 +1,7 @@
 # Hi, I'm Roha Arslan 
 
 I am a **Software Engineer** specializing in **ML; AI, Web Development, and Biomedical Applications**.  
-This page serves as a concise professional summary and contact hub.
+
 
 ---
 
@@ -11,6 +11,14 @@ This page serves as a concise professional summary and contact hub.
 - Strong interest in the intersection of **healthcare and technology**.
 
 ---
+
+## GitHub Stats
+
+<!-- GitHub Stats -->
+![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=false&theme=dark)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rohaarslan&layout=compact&count_private=false&theme=dark)
+
 
 ## Skills
 - **Programming Languages:** Python, JavaScript (React, Node.js), SQL  
@@ -28,5 +36,5 @@ You can reach me through:
 ---
 
 ## Note
-This profile focuses on professional info and contact options.  
+
 Feel free to connect if you'd like to collaborate or discuss opportunities.
