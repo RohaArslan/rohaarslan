@@ -1,12 +1,10 @@
 name: Update GitHub Stats
 
-# Trigger workflow manually or every hour
 on:
   workflow_dispatch:
   schedule:
     - cron: '0 * * * *' # every hour
 
-# Give write permissions to push back
 permissions:
   contents: write
 
@@ -20,12 +18,19 @@ jobs:
 
       - name: Update README.md stats
         run: |
-          # Use double quotes to wrap sed replacement
-          sed -i "/<!--START_STATS-->/, /<!--END_STATS-->/c\\
-<!--START_STATS-->\\
-![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=true&theme=dark&token=${{ secrets.GITHUB_TOKEN }})\\
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rohaarslan&layout=compact&count_private=true&theme=dark&token=${{ secrets.GITHUB_TOKEN }})\\
-<!--END_STATS-->" README.md
+          # Extract everything except the old stats section
+          awk '/<!--START_STATS-->/ {skip=1} /<!--END_STATS-->/ {skip=0; next} !skip' README.md > README.tmp
+          
+          # Append new stats section
+          cat <<'EOF' >> README.tmp
+<!--START_STATS-->
+![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=true&theme=dark&token=${{ secrets.GITHUB_TOKEN }})
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rohaarslan&layout=compact&count_private=true&theme=dark&token=${{ secrets.GITHUB_TOKEN }})
+<!--END_STATS-->
+EOF
+
+          # Replace README.md
+          mv README.tmp README.md
 
       - name: Commit changes
         run: |
