@@ -25,11 +25,13 @@ jobs:
           STATS="![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=true&theme=dark&token=$GH_TOKEN)"
           LANGS="![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rohaarslan&layout=compact&count_private=true&theme=dark&token=$GH_TOKEN)"
 
-          sed -i "/<!-- START_STATS -->/,/<!-- END_STATS -->/c\\
-<!-- START_STATS -->\\
-$STATS\\
-$LANGS\\
-<!-- END_STATS -->" README.md
+          # Use 'awk' to replace lines between markers
+          awk -v stats="$STATS" -v langs="$LANGS" '
+          BEGIN {inblock=0}
+          /<!-- START_STATS -->/ {print; print stats; print langs; inblock=1; next}
+          /<!-- END_STATS -->/ {inblock=0}
+          !inblock {print}
+          ' README.md > README.tmp && mv README.tmp README.md
 
       - name: Commit and push changes
         run: |
