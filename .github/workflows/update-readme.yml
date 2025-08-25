@@ -1,40 +1,45 @@
 name: Update GitHub Stats
 
+# Trigger workflow manually or every hour
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'  # every hour
-  workflow_dispatch:       # allows manual run
+    - cron: '0 * * * *' # every hour
+
+# Give write permissions to push back
+permissions:
+  contents: write
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Set up Git
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install -g github-readme-stats
+
+      - name: Update README.md stats
         run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          # Replace with your README stats section or just re-generate it
+          # Example: generate GitHub stats images URLs with token
+          sed -i '/<!--START_STATS-->/, /<!--END_STATS-->/c\
+<!--START_STATS-->\n![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=true&theme=dark&token=${{ secrets.GITHUB_TOKEN }})\n![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rohaarslan&layout=compact&count_private=true&theme=dark&token=${{ secrets.GITHUB_TOKEN }})\n<!--END_STATS-->' README.md
 
-      - name: Update README stats
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Commit changes
         run: |
-          STATS="![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=true&theme=dark&token=$GH_TOKEN)"
-          LANGS="![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rohaarslan&layout=compact&count_private=true&theme=dark&token=$GH_TOKEN)"
-
-          # Use 'awk' to replace lines between markers
-          awk -v stats="$STATS" -v langs="$LANGS" '
-          BEGIN {inblock=0}
-          /<!-- START_STATS -->/ {print; print stats; print langs; inblock=1; next}
-          /<!-- END_STATS -->/ {inblock=0}
-          !inblock {print}
-          ' README.md > README.tmp && mv README.tmp README.md
-
-      - name: Commit and push changes
-        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
           git commit -m "Update GitHub stats" || echo "No changes to commit"
-          git push
+
+      - name: Push changes
+        run: |
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
