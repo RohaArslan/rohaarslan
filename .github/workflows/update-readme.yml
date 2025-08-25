@@ -18,20 +18,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install -g github-readme-stats
-
       - name: Update README.md stats
         run: |
-          # Replace with your README stats section or just re-generate it
-          # Example: generate GitHub stats images URLs with token
-          sed -i '/<!--START_STATS-->/, /<!--END_STATS-->/c\
-<!--START_STATS-->\n![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=true&theme=dark&token=${{ secrets.GITHUB_TOKEN }})\n![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rohaarslan&layout=compact&count_private=true&theme=dark&token=${{ secrets.GITHUB_TOKEN }})\n<!--END_STATS-->' README.md
+          # Use double quotes to wrap sed replacement
+          sed -i "/<!--START_STATS-->/, /<!--END_STATS-->/c\\
+<!--START_STATS-->\\
+![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=true&theme=dark&token=${{ secrets.GITHUB_TOKEN }})\\
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rohaarslan&layout=compact&count_private=true&theme=dark&token=${{ secrets.GITHUB_TOKEN }})\\
+<!--END_STATS-->" README.md
 
       - name: Commit changes
         run: |
