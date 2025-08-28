@@ -15,7 +15,7 @@
 ## GitHub Stats
 
 <!-- GitHub Stats -->
-![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=false&theme=dark)
+![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=false&theme=dark&include_all_commits=true)
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rohaarslan&layout=compact&count_private=false&theme=dark)
 
