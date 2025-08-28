@@ -1,11 +1,11 @@
-# Hi, I'm Roha Arslan 
 
-I am a **Software Engineer** specializing in **ML; AI, Web Development, and Biomedical Applications**.  
+
+ a **Software Engineer** specializing in **ML; AI, Web Development, and Biomedical Applications**.  
 
 
 ---
 
-## About Me
+## Interests
 - Passionate about **building impactful software solutions**.
 - Experience in **full-stack development** and **machine learning**.
 - Strong interest in the intersection of **healthcare and technology**.
@@ -28,7 +28,7 @@ I am a **Software Engineer** specializing in **ML; AI, Web Development, and Biom
 ---
 
 ## Contact
-You can reach me through:
+
 
 - **LinkedIn:** [Linkedin](https://linkedin.com/in/rohaarslan)  
 - **Portfolio:** [Whois?Roha](https://rohaarslan.github.io/)
