@@ -15,9 +15,10 @@
 ## GitHub Stats
 
 <!-- GitHub Stats -->
-![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=false&theme=dark&include_all_commits=true)
+![Roha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rohaarslan&show_icons=true&count_private=true&include_all_commits=true&rank_icon=github&theme=dark)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rohaarslan&layout=compact&count_private=false&theme=dark)
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=rohaarslan&layout=compact&theme=dark&include_orgs=true)
 
 
 ## Skills
